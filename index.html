@@ -10,20 +10,26 @@ body{
     margin:0;
     font-family: 'Segoe UI', sans-serif;
     background: linear-gradient(135deg,#ff9a9e,#fad0c4);
-    text-align:center;
     color:#fff;
+    text-align:center;
 }
 
+/* Container */
 .container{
-    padding:50px 20px;
+    padding:30px 15px;
+    max-width:900px;
+    margin:auto;
 }
 
+/* Title */
 h1{
-    font-size:40px;
+    font-size:32px;
+    margin-bottom:20px;
 }
 
+/* Heart */
 .heart{
-    font-size:60px;
+    font-size:50px;
     animation:beat 1s infinite;
 }
 
@@ -33,24 +39,47 @@ h1{
     100%{transform:scale(1)}
 }
 
-.message{
-    margin-top:30px;
-    font-size:20px;
-    line-height:1.6;
-}
-
-.time{
-    margin-top:30px;
-    font-size:24px;
-    font-weight:bold;
-}
-
+/* Card */
 .card{
     background:rgba(255,255,255,0.2);
     padding:20px;
     border-radius:15px;
-    margin-top:30px;
+    margin-top:20px;
     backdrop-filter: blur(10px);
+    text-align:left;
+    line-height:1.7;
+}
+
+/* Gallery */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+    gap:10px;
+    margin-top:30px;
+}
+
+.gallery img{
+    width:100%;
+    border-radius:10px;
+    object-fit:cover;
+    height:120px;
+    transition:0.3s;
+}
+
+.gallery img:hover{
+    transform:scale(1.1);
+}
+
+/* Time */
+.time{
+    margin-top:25px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+/* Mobile */
+@media(max-width:600px){
+    h1{font-size:24px}
 }
 </style>
 </head>
@@ -58,28 +87,61 @@ h1{
 <body>
 
 <div class="container">
-    <div class="heart">❤️</div>
-    <h1>Kỷ niệm 5 năm bên nhau</h1>
 
-    <div class="card">
-        <p class="message">
-            5 năm không phải là khoảng thời gian quá dài,<br>
-            nhưng đủ để chúng ta cùng nhau trải qua rất nhiều điều.<br><br>
+<div class="heart">❤️</div>
+<h1>Hành trình 5 năm – một tình yêu học cách ở lại</h1>
 
-            Cảm ơn em vì đã luôn ở bên anh,<br>
-            cùng anh vượt qua những ngày khó khăn,<br>
-            và tạo nên những kỷ niệm đẹp nhất 💖<br><br>
+<div class="card">
+<p>
+Ngày 15/04/2021, chúng mình bắt đầu bằng những tin nhắn rất giản dị. Không có kế hoạch cho tương lai, không ai nghĩ xa hơn vài câu trả lời tiếp theo. Chỉ là hai người xa lạ, vô tình bước vào cuộc sống của nhau bằng những lời hỏi han rất nhỏ. Vậy mà chính sự bình thường ấy lại khiến cả hai chẳng nỡ rời đi.
+<br><br>
+Có những ngày nhắn tin rất nhiều, cũng có những ngày chỉ kịp gửi cho nhau đúng một câu. Nhưng lạ là, dù nói ít hay nhiều, thì sự hiện diện của người kia vẫn ở đó – âm thầm, nhẹ nhàng nhưng đủ để cảm thấy không cô đơn.
+<br><br>
+Đến 09/05/2021, tụi mình đồng ý quen nhau. Không phải vì mọi thứ đã chắc chắn, mà vì không muốn bỏ lỡ nhau.
+<br><br>
+5 năm trôi qua, có vui, có buồn, có giận hờn… nhưng sau cùng vẫn chọn ở lại.
+<br><br>
+Đặc biệt là 06/09/2024 – ngày em sang Hàn Quốc. Từ đó, tình yêu phải đi qua khoảng cách.
+<br><br>
+Yêu xa là nhớ, là cố gắng, là chờ đợi… nhưng cũng là minh chứng rõ nhất cho tình yêu này.
+<br><br>
+5 năm – không chỉ là thời gian, mà là sự lựa chọn không rời đi 💖
+</p>
+</div>
 
-            Mong rằng chúng ta sẽ còn nhiều năm nữa bên nhau...
-        </p>
-    </div>
+<!-- 📸 GALLERY -->
+<div class="gallery">
 
-    <div class="time" id="loveTime"></div>
+<!-- 👉 thay bằng ảnh của bạn -->
+<img src="img1.jpg">
+<img src="img2.jpg">
+<img src="img3.jpg">
+<img src="img4.jpg">
+<img src="img5.jpg">
+<img src="img6.jpg">
+<img src="img7.jpg">
+<img src="img8.jpg">
+<img src="img9.jpg">
+<img src="img10.jpg">
+<img src="img11.jpg">
+<img src="img12.jpg">
+<img src="img13.jpg">
+<img src="img14.jpg">
+<img src="img15.jpg">
+<img src="img16.jpg">
+<img src="img17.jpg">
+<img src="img18.jpg">
+<img src="img19.jpg">
+<img src="img20.jpg">
+
+</div>
+
+<div class="time" id="loveTime"></div>
+
 </div>
 
 <script>
-// 👉 sửa ngày bắt đầu yêu ở đây
-const startDate = new Date("2021-05-09");
+const startDate = new Date("2021-05-05");
 
 function updateTime(){
     const now = new Date();
@@ -88,13 +150,11 @@ function updateTime(){
     const days = Math.floor(diff / (1000*60*60*24));
     const hours = Math.floor((diff / (1000*60*60)) % 24);
     const minutes = Math.floor((diff / (1000*60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
 
     document.getElementById("loveTime").innerHTML =
         "Đã bên nhau: " + days + " ngày " +
         hours + " giờ " +
-        minutes + " phút " +
-        seconds + " giây 💕";
+        minutes + " phút 💕";
 }
 
 setInterval(updateTime,1000);
