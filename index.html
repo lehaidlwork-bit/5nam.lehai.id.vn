@@ -65,26 +65,6 @@ body::before{
     to{opacity:1}
 }
 
-/* 💖 background floating icons */
-.bg-heart{
-    position:fixed;
-    font-size:20px;
-    color:rgba(255,255,255,0.15);
-    pointer-events:none;
-    animation:floatBg linear infinite;
-}
-@keyframes floatBg{
-    from{
-        transform:translateY(100vh) scale(0.8);
-        opacity:0;
-    }
-    20%{opacity:1;}
-    to{
-        transform:translateY(-10vh) scale(1.2);
-        opacity:0;
-    }
-}
-
 .gallery{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
@@ -134,6 +114,7 @@ body::before{
 @keyframes fall{to{transform:translateY(100vh)}}
 
 .time{margin-top:25px;font-weight:bold}
+  
 </style>
 </head>
 
@@ -165,29 +146,117 @@ body::before{
 </div>
 
 <script>
-// 💖 tim nền mờ
-setInterval(()=>{
-    let h=document.createElement("div");
-    h.className="bg-heart";
-    h.innerHTML="💗";
-    h.style.left=Math.random()*100+"vw";
-    h.style.fontSize=(15+Math.random()*25)+"px";
-    h.style.animationDuration=(8+Math.random()*10)+"s";
-    document.body.appendChild(h);
-    setTimeout(()=>h.remove(),15000);
-},800);
-
-// bật nhạc
+// bật nhạc khi click
 document.addEventListener("click",()=>{
 let m=document.getElementById("bgMusic");
 m.muted=false;
 m.play();
 },{once:true});
 
-// FULL TEXT KHÔNG THIẾU
-const text = `Ngày 15/04/2021, mọi thứ bắt đầu theo một cách rất tình cờ. Chỉ là một lần lướt Facebook như bao ngày khác, rồi anh nhìn thấy em. Không có lý do gì đặc biệt, chỉ là một cảm giác rất nhẹ — đủ để anh nhấn vào, và chủ động nhắn cho em một tin: “Chào em, mình làm quen nhé?” Có lẽ lúc đó, cả hai đều không nghĩ rằng chỉ từ một tin nhắn đơn giản như vậy, lại có thể mở ra một câu chuyện dài đến thế. Những ngày sau đó là những cuộc trò chuyện rất bình thường. Không có gì quá đặc biệt, cũng không có điều gì chắc chắn. Chỉ là hai người xa lạ, nói chuyện với nhau mỗi ngày một chút, rồi dần dần trở thành thói quen lúc nào không hay. Và rồi đến ngày 09/05/2021 — một ngày mà anh vẫn luôn nhớ rất rõ. Em nhắn cho anh một câu mà có lẽ anh sẽ không bao giờ quên: “Em đồng ý cho anh làm người yêu em đó.” Không phải là một lời tỏ tình quá hoa mỹ, nhưng lại đủ để làm tim anh lúc đó rung lên theo một cách rất thật. Anh và em bắt đầu từ đó. Nhưng tình yêu của anh và em lại không giống như những câu chuyện bình thường khác. Suốt 8 tháng đầu tiên, anh và em chỉ có thể nhìn thấy nhau qua màn hình điện thoại. Không có những buổi đi chơi, không có những cái nắm tay, không có cả những lần gặp mặt trực tiếp… chỉ có những tin nhắn, những cuộc gọi, và sự chờ đợi. Dịch bệnh đã giữ hai đứa ở hai nơi khác nhau, nhưng lại không thể giữ được cảm xúc của anh và em. Và rồi, sau tất cả những ngày chỉ nhìn nhau qua màn hình, mùng 3 Tết năm 2022 — anh và em cuối cùng cũng gặp nhau. Không cần phải là một điều gì quá lớn lao, chỉ cần được đứng trước mặt nhau, nhìn thấy nhau thật sự… là đủ để hiểu rằng mọi chờ đợi trước đó đều xứng đáng. Khoảnh khắc đó, có lẽ là một trong những điều đẹp nhất mà anh từng có. Trong suốt quãng thời gian bên nhau, anh và em không phải lúc nào cũng suôn sẻ. Có những lúc quen nhau được vài tháng, có những lúc kéo dài đến cả một năm. Có những lần gần nhau, và cũng có những lần phải tạm xa nhau. Nhưng lạ là, dù có đi qua bao nhiêu lần như vậy, anh và em vẫn quay lại bên nhau. Không phải vì không có lựa chọn khác, mà là vì sau tất cả, anh và em vẫn chọn nhau. Và rồi, đến ngày 06/09/2024 — một cột mốc khác, một thử thách khác. Ngày em sang Hàn Quốc. Từ lúc đó, tình yêu của anh và em chính thức bước vào một hành trình mới — hành trình của khoảng cách. Yêu xa không chỉ là nhớ. Mà là những lần muốn gặp nhưng không thể, là những lúc mệt mỏi nhưng chỉ có thể hỏi nhau qua màn hình, là học cách tin tưởng nhiều hơn, kiên nhẫn nhiều hơn, và trưởng thành hơn. Khoảng cách khiến mọi thứ trở nên khó khăn hơn, nhưng cũng làm cho tình yêu của anh và em trở nên rõ ràng hơn bao giờ hết. Sau tất cả, anh và em vẫn ở đây. Vẫn là hai người đã từng bắt đầu từ một tin nhắn rất đơn giản, nhưng lại cùng nhau đi qua rất nhiều điều không hề đơn giản. 5 năm — không phải là quãng thời gian quá dài đối với một đời người, nhưng đủ dài để anh hiểu em quan trọng với anh như thế nào. Đủ để anh biết rằng tình yêu không chỉ là những lúc vui, mà còn là những lúc vẫn chọn ở lại, ngay cả khi mọi thứ không dễ dàng. 💌 LỜI ANH MUỐN NÓI Và sau tất cả những điều đã đi qua, anh chỉ muốn nói một điều rất đơn giản. Cảm ơn em vì đã bước vào cuộc đời anh một cách rất tình cờ, nhưng lại ở lại một cách rất thật lòng. Cảm ơn em vì đã cùng anh đi qua những ngày rất bình thường, và cả những ngày không dễ dàng. Cảm ơn em vì đã kiên nhẫn, vì đã không rời đi, dù có những lúc khoảng cách và cuộc sống khiến mọi thứ trở nên khó khăn hơn. Có thể anh và em không hoàn hảo, nhưng suốt 5 năm qua, điều anh luôn chắc chắn… là anh chưa từng hối hận vì đã chọn yêu em. Anh từng nghĩ… nếu một ngày mình không còn đi cùng nhau nữa, thì có lẽ anh vẫn sẽ ổn thôi. Nhưng rồi anh nhận ra, điều anh sợ không phải là mất đi một mối quan hệ… mà là mất đi em — người đã ở bên anh suốt cả một hành trình. Và đến lúc đó anh mới hiểu… sau tất cả, anh chưa từng chuẩn bị cho một cuộc sống không có em`;
+// FULL TEXT
+const text = `💖 CÂU CHUYỆN CỦA ANH VÀ EM
 
-// typewriter
+Ngày 15/04/2021, mọi thứ bắt đầu theo một cách rất tình cờ.
+Chỉ là một lần lướt Facebook như bao ngày khác, rồi anh nhìn thấy em. Không có lý do gì đặc biệt, chỉ là một cảm giác rất nhẹ — đủ để anh nhấn vào, và chủ động nhắn cho em một tin: “Chào em, mình làm quen nhé?”
+
+Có lẽ lúc đó, cả hai đều không nghĩ rằng chỉ từ một tin nhắn đơn giản như vậy, lại có thể mở ra một câu chuyện dài đến thế.
+
+Những ngày sau đó là những cuộc trò chuyện rất bình thường. Không có gì quá đặc biệt, cũng không có điều gì chắc chắn. Chỉ là hai người xa lạ, nói chuyện với nhau mỗi ngày một chút, rồi dần dần trở thành thói quen lúc nào không hay.
+
+Và rồi đến ngày 09/05/2021 — một ngày mà anh vẫn luôn nhớ rất rõ.
+Em nhắn cho anh một câu mà có lẽ anh sẽ không bao giờ quên:
+
+“Em đồng ý cho anh làm người yêu em đó.”
+
+Không phải là một lời tỏ tình quá hoa mỹ, nhưng lại đủ để làm tim anh lúc đó rung lên theo một cách rất thật.
+
+Anh và em bắt đầu từ đó.
+
+Nhưng tình yêu của anh và em lại không giống như những câu chuyện bình thường khác.
+Suốt 8 tháng đầu tiên, anh và em chỉ có thể nhìn thấy nhau qua màn hình điện thoại. Không có những buổi đi chơi, không có những cái nắm tay, không có cả những lần gặp mặt trực tiếp… chỉ có những tin nhắn, những cuộc gọi, và sự chờ đợi.
+
+Dịch bệnh đã giữ hai đứa ở hai nơi khác nhau, nhưng lại không thể giữ được cảm xúc của anh và em.
+
+Và rồi, sau tất cả những ngày chỉ nhìn nhau qua màn hình,
+mùng 3 Tết năm 2022 — anh và em cuối cùng cũng gặp nhau.
+
+Không cần phải là một điều gì quá lớn lao,
+chỉ cần được đứng trước mặt nhau, nhìn thấy nhau thật sự…
+là đủ để hiểu rằng mọi chờ đợi trước đó đều xứng đáng.
+
+Khoảnh khắc đó, có lẽ là một trong những điều đẹp nhất mà anh từng có.
+
+Trong suốt quãng thời gian bên nhau, anh và em không phải lúc nào cũng suôn sẻ.
+Có những lúc quen nhau được vài tháng, có những lúc kéo dài đến cả một năm. Có những lần gần nhau, và cũng có những lần phải tạm xa nhau.
+
+Nhưng lạ là, dù có đi qua bao nhiêu lần như vậy,
+anh và em vẫn quay lại bên nhau.
+
+Không phải vì không có lựa chọn khác,
+mà là vì sau tất cả, anh và em vẫn chọn nhau.
+
+Và rồi, đến ngày 06/09/2024 —
+một cột mốc khác, một thử thách khác.
+
+Ngày em sang Hàn Quốc.
+
+Từ lúc đó, tình yêu của anh và em chính thức bước vào một hành trình mới — hành trình của khoảng cách.
+
+Yêu xa không chỉ là nhớ.
+Mà là những lần muốn gặp nhưng không thể,
+là những lúc mệt mỏi nhưng chỉ có thể hỏi nhau qua màn hình,
+là học cách tin tưởng nhiều hơn, kiên nhẫn nhiều hơn, và trưởng thành hơn.
+
+Khoảng cách khiến mọi thứ trở nên khó khăn hơn,
+nhưng cũng làm cho tình yêu của anh và em trở nên rõ ràng hơn bao giờ hết.
+
+Sau tất cả, anh và em vẫn ở đây.
+Vẫn là hai người đã từng bắt đầu từ một tin nhắn rất đơn giản,
+nhưng lại cùng nhau đi qua rất nhiều điều không hề đơn giản.
+
+5 năm — không phải là quãng thời gian quá dài đối với một đời người,
+nhưng đủ dài để anh hiểu em quan trọng với anh như thế nào.
+
+Đủ để anh biết rằng tình yêu không chỉ là những lúc vui,
+mà còn là những lúc vẫn chọn ở lại, ngay cả khi mọi thứ không dễ dàng.
+
+💌 LỜI ANH MUỐN NÓI
+
+Và sau tất cả những điều đã đi qua,
+anh chỉ muốn nói một điều rất đơn giản.
+
+Cảm ơn em vì đã bước vào cuộc đời anh một cách rất tình cờ,
+nhưng lại ở lại một cách rất thật lòng.
+
+Cảm ơn em vì đã cùng anh đi qua những ngày rất bình thường,
+và cả những ngày không dễ dàng.
+
+Cảm ơn em vì đã kiên nhẫn,
+vì đã không rời đi,
+dù có những lúc khoảng cách và cuộc sống khiến mọi thứ trở nên khó khăn hơn.
+
+Có thể anh và em không hoàn hảo,
+nhưng suốt 5 năm qua,
+điều anh luôn chắc chắn…
+
+là anh chưa từng hối hận vì đã chọn yêu em.
+
+Anh từng nghĩ…
+nếu một ngày mình không còn đi cùng nhau nữa,
+thì có lẽ anh vẫn sẽ ổn thôi.
+
+Nhưng rồi anh nhận ra,
+điều anh sợ không phải là mất đi một mối quan hệ…
+
+mà là mất đi em —
+người đã ở bên anh suốt cả một hành trình.
+
+Và đến lúc đó anh mới hiểu…
+
+sau tất cả,
+anh chưa từng chuẩn bị cho một cuộc sống không có em.`;
+
+// typewriter + slow ending
 let i=0;
 function type(){
 let speed = (i > text.length - 200) ? 60 : 20;
@@ -200,11 +269,56 @@ endScene();
 }}
 type();
 
-// ending
+// cinematic ending
 function endScene(){
 let el=document.getElementById("typedText");
 el.innerHTML += `<span class="highlight">Yêu Em 😘</span>`;
+
+let m=document.getElementById("bgMusic");
+let vol=1;
+let fade=setInterval(()=>{
+if(vol>0){
+vol-=0.05;
+m.volume=vol;
+}else clearInterval(fade);
+},200);
 }
+
+// hiệu ứng
+setInterval(()=>{
+let h=document.createElement("div");
+h.className="floating-heart";
+h.innerHTML="💖";
+h.style.left=Math.random()*100+"vw";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),5000);
+},400);
+
+let snow=document.getElementById("snow");
+for(let i=0;i<60;i++){
+let s=document.createElement("span");
+s.style.left=Math.random()*100+"vw";
+s.style.animationDuration=(3+Math.random()*5)+"s";
+snow.appendChild(s);
+}
+
+// zoom ảnh
+document.querySelectorAll(".gallery img").forEach(img=>{
+img.onclick=()=>{
+let box=document.createElement("div");
+box.className="lightbox";
+box.innerHTML=`<img src="${img.src}">`;
+box.onclick=()=>box.remove();
+document.body.appendChild(box);
+}
+});
+
+// đếm ngày
+const start=new Date("2021-05-09");
+setInterval(()=>{
+let d=Math.floor((new Date()-start)/86400000);
+document.getElementById("loveTime").innerHTML="Đã bên nhau: "+d+" ngày 💕";
+},1000);
 </script>
 
 </body>
