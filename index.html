@@ -3,56 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kỷ niệm 5 năm 💖</title>
+<title>5 năm của anh và em 💖</title>
 
 <style>
 body{
     margin:0;
     font-family:'Segoe UI',sans-serif;
-    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
     color:#fff;
     text-align:center;
     overflow-x:hidden;
+    background: radial-gradient(circle at 20% 20%, #ff9a9e, transparent),
+                radial-gradient(circle at 80% 80%, #fad0c4, transparent),
+                linear-gradient(135deg,#1a1a2e,#16213e);
 }
 
-.container{
-    padding:30px 15px;
-    max-width:900px;
-    margin:auto;
+body::before{
+    content:'';
+    position:fixed;
+    width:200%;
+    height:200%;
+    background:radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size:50px 50px;
+    animation:moveBg 25s linear infinite;
+}
+@keyframes moveBg{
+    to{transform:translate(-200px,-200px)}
 }
 
-h1{font-size:30px;}
+.container{max-width:900px;margin:auto;padding:30px}
 
-.heart{
-    font-size:50px;
-    animation:beat 1s infinite;
-}
-@keyframes beat{
-    50%{transform:scale(1.2)}
-}
+.heart{font-size:50px;animation:beat 1s infinite}
+@keyframes beat{50%{transform:scale(1.2)}}
 
-/* CARD */
 .card{
-    background:rgba(255,255,255,0.2);
+    background:rgba(255,255,255,0.15);
     padding:20px;
     border-radius:15px;
-    margin-top:20px;
     backdrop-filter:blur(10px);
     text-align:left;
     line-height:1.7;
 }
 
-/* TYPE */
 #typedText{
     white-space:pre-line;
     border-right:2px solid white;
     animation:blink 1s infinite;
 }
-@keyframes blink{
-    50%{border-color:transparent}
+@keyframes blink{50%{border-color:transparent}}
+
+.highlight{
+    font-size:28px;
+    font-weight:bold;
+    text-align:center;
+    display:block;
+    margin-top:20px;
+    text-shadow:0 0 20px rgba(255,255,255,0.9);
+    animation:glow 2s infinite alternate;
+}
+@keyframes glow{
+    from{opacity:0.6}
+    to{opacity:1}
 }
 
-/* GALLERY */
 .gallery{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
@@ -69,171 +81,242 @@ h1{font-size:30px;}
 }
 .gallery img:hover{transform:scale(1.1)}
 
-/* LIGHTBOX */
 .lightbox{
     position:fixed;
     top:0;left:0;
     width:100%;height:100%;
-    background:rgba(0,0,0,0.8);
+    background:rgba(0,0,0,0.9);
     display:flex;
     justify-content:center;
     align-items:center;
 }
-.lightbox img{
-    max-width:90%;
-    max-height:90%;
-}
+.lightbox img{max-width:90%;max-height:90%}
 
-/* HEART FLOAT */
 .floating-heart{
     position:fixed;
     bottom:-10px;
     animation:floatUp 5s linear infinite;
 }
-@keyframes floatUp{
-    to{transform:translateY(-100vh);}
-}
+@keyframes floatUp{to{transform:translateY(-100vh)}}
 
-/* SNOW */
 .snow{
     position:fixed;
-    top:0;
-    width:100%;
-    height:100%;
+    width:100%;height:100%;
     pointer-events:none;
 }
 .snow span{
     position:absolute;
-    width:5px;height:5px;
+    width:4px;height:4px;
     background:white;
     border-radius:50%;
     animation:fall linear infinite;
 }
-@keyframes fall{
-    to{transform:translateY(100vh);}
-}
+@keyframes fall{to{transform:translateY(100vh)}}
 
-.time{
-    margin-top:25px;
-    font-weight:bold;
-}
+.time{margin-top:25px;font-weight:bold}
 </style>
 </head>
 
 <body>
 
 <audio id="bgMusic" autoplay loop muted>
-    <source src="music.mp3" type="audio/mpeg">
+<source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <div class="snow" id="snow"></div>
 
 <div class="container">
 <div class="heart">❤️</div>
-<h1>Hành trình 5 năm – một tình yêu học cách ở lại</h1>
+<h1>Hành trình của anh và em 💖</h1>
 
 <div class="card">
 <p id="typedText"></p>
 </div>
 
 <div class="gallery">
-<img src="img1.jpg">
-<img src="img2.jpg">
-<img src="img3.jpg">
-<img src="img4.jpg">
-<img src="img5.jpg">
-<img src="img6.jpg">
+<img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+<img src="img5.jpg"><img src="img6.jpg"><img src="img7.jpg"><img src="img8.jpg">
+<img src="img9.jpg"><img src="img10.jpg"><img src="img11.jpg"><img src="img12.jpg">
+<img src="img13.jpg"><img src="img14.jpg"><img src="img15.jpg"><img src="img16.jpg">
+<img src="img17.jpg"><img src="img18.jpg"><img src="img19.jpg"><img src="img20.jpg">
 </div>
 
 <div class="time" id="loveTime"></div>
 </div>
 
 <script>
-// 🎵 AUTOPLAY FIX
-document.addEventListener("click", ()=>{
-    const m=document.getElementById("bgMusic");
-    m.muted=false;
-    m.play();
+// bật nhạc khi click
+document.addEventListener("click",()=>{
+let m=document.getElementById("bgMusic");
+m.muted=false;
+m.play();
 },{once:true});
 
-// 💌 TYPEWRITER FULL
-const paragraphs = [
-`Ngày 15/04/2021, chúng mình bắt đầu bằng những tin nhắn rất giản dị. Không có kế hoạch cho tương lai, không ai nghĩ xa hơn vài câu trả lời tiếp theo. Chỉ là hai người xa lạ, vô tình bước vào cuộc sống của nhau bằng những lời hỏi han rất nhỏ. Vậy mà chính sự bình thường ấy lại khiến cả hai chẳng nỡ rời đi.`,
+// FULL TEXT
+const text = `💖 CÂU CHUYỆN CỦA ANH VÀ EM
 
-`Có những ngày nhắn tin rất nhiều, cũng có những ngày chỉ kịp gửi cho nhau đúng một câu. Nhưng lạ là, dù nói ít hay nhiều, thì sự hiện diện của người kia vẫn ở đó – âm thầm, nhẹ nhàng nhưng đủ để cảm thấy không cô đơn.`,
+Ngày 15/04/2021, mọi thứ bắt đầu theo một cách rất tình cờ.
+Chỉ là một lần lướt Facebook như bao ngày khác, rồi anh nhìn thấy em. Không có lý do gì đặc biệt, chỉ là một cảm giác rất nhẹ — đủ để anh nhấn vào, và chủ động nhắn cho em một tin: “Chào em, mình làm quen nhé?”
 
-`Đến 09/05/2021, tụi mình đồng ý quen nhau. Không phải vì mọi thứ đã chắc chắn, mà vì không muốn bỏ lỡ nhau. Đó là một quyết định rất đỗi nhẹ nhàng, nhưng cũng đầy can đảm.`,
+Có lẽ lúc đó, cả hai đều không nghĩ rằng chỉ từ một tin nhắn đơn giản như vậy, lại có thể mở ra một câu chuyện dài đến thế.
 
-`5 năm trôi qua, tình yêu không chỉ toàn là những khoảnh khắc hạnh phúc. Có những ngày rất vui, nhưng cũng có những ngày mệt mỏi, giận hờn và im lặng. Nhưng rồi sau cùng, cả hai vẫn chọn ở lại.`,
+Những ngày sau đó là những cuộc trò chuyện rất bình thường. Không có gì quá đặc biệt, cũng không có điều gì chắc chắn. Chỉ là hai người xa lạ, nói chuyện với nhau mỗi ngày một chút, rồi dần dần trở thành thói quen lúc nào không hay.
 
-`Đặc biệt là 06/09/2024 – ngày em sang Hàn Quốc. Từ đó, tình yêu phải đi qua khoảng cách.`,
+Và rồi đến ngày 09/05/2021 — một ngày mà anh vẫn luôn nhớ rất rõ.
+Em nhắn cho anh một câu mà có lẽ anh sẽ không bao giờ quên:
 
-`Yêu xa không chỉ là nhớ, mà còn là rất nhiều lần cố gắng. Khoảng cách khiến mọi thứ khó hơn, nhưng cũng làm tình yêu này rõ ràng hơn.`,
+“Em đồng ý cho anh làm người yêu em đó.”
 
-`5 năm – là từng tin nhắn nhỏ, từng lần giận rồi lại thương, từng khoảnh khắc gần và những ngày rất xa. Là học cách yêu một người không chỉ khi mọi thứ bình yên, mà cả khi cuộc sống buộc phải chia hai con đường khác nhau trong một thời gian.`,
+Không phải là một lời tỏ tình quá hoa mỹ, nhưng lại đủ để làm tim anh lúc đó rung lên theo một cách rất thật.
 
-`Từ 15/04/2021, 09/05/2021, đến 06/09/2024 – không chỉ là những cột mốc, mà là minh chứng cho một tình yêu trưởng thành từ kiên nhẫn, từ chờ đợi, và từ lựa chọn không rời đi dù có khó khăn đến đâu 💖`
-];
+Anh và em bắt đầu từ đó.
 
-let p=0,c=0;
-const speed=30;
-const pause=1500;
+Nhưng tình yêu của anh và em lại không giống như những câu chuyện bình thường khác.
+Suốt 8 tháng đầu tiên, anh và em chỉ có thể nhìn thấy nhau qua màn hình điện thoại. Không có những buổi đi chơi, không có những cái nắm tay, không có cả những lần gặp mặt trực tiếp… chỉ có những tin nhắn, những cuộc gọi, và sự chờ đợi.
 
+Dịch bệnh đã giữ hai đứa ở hai nơi khác nhau, nhưng lại không thể giữ được cảm xúc của anh và em.
+
+Và rồi, sau tất cả những ngày chỉ nhìn nhau qua màn hình,
+mùng 3 Tết năm 2022 — anh và em cuối cùng cũng gặp nhau.
+
+Không cần phải là một điều gì quá lớn lao,
+chỉ cần được đứng trước mặt nhau, nhìn thấy nhau thật sự…
+là đủ để hiểu rằng mọi chờ đợi trước đó đều xứng đáng.
+
+Khoảnh khắc đó, có lẽ là một trong những điều đẹp nhất mà anh từng có.
+
+Trong suốt quãng thời gian bên nhau, anh và em không phải lúc nào cũng suôn sẻ.
+Có những lúc quen nhau được vài tháng, có những lúc kéo dài đến cả một năm. Có những lần gần nhau, và cũng có những lần phải tạm xa nhau.
+
+Nhưng lạ là, dù có đi qua bao nhiêu lần như vậy,
+anh và em vẫn quay lại bên nhau.
+
+Không phải vì không có lựa chọn khác,
+mà là vì sau tất cả, anh và em vẫn chọn nhau.
+
+Và rồi, đến ngày 06/09/2024 —
+một cột mốc khác, một thử thách khác.
+
+Ngày em sang Hàn Quốc.
+
+Từ lúc đó, tình yêu của anh và em chính thức bước vào một hành trình mới — hành trình của khoảng cách.
+
+Yêu xa không chỉ là nhớ.
+Mà là những lần muốn gặp nhưng không thể,
+là những lúc mệt mỏi nhưng chỉ có thể hỏi nhau qua màn hình,
+là học cách tin tưởng nhiều hơn, kiên nhẫn nhiều hơn, và trưởng thành hơn.
+
+Khoảng cách khiến mọi thứ trở nên khó khăn hơn,
+nhưng cũng làm cho tình yêu của anh và em trở nên rõ ràng hơn bao giờ hết.
+
+Sau tất cả, anh và em vẫn ở đây.
+Vẫn là hai người đã từng bắt đầu từ một tin nhắn rất đơn giản,
+nhưng lại cùng nhau đi qua rất nhiều điều không hề đơn giản.
+
+5 năm — không phải là quãng thời gian quá dài đối với một đời người,
+nhưng đủ dài để anh hiểu em quan trọng với anh như thế nào.
+
+Đủ để anh biết rằng tình yêu không chỉ là những lúc vui,
+mà còn là những lúc vẫn chọn ở lại, ngay cả khi mọi thứ không dễ dàng.
+
+💌 LỜI ANH MUỐN NÓI
+
+Và sau tất cả những điều đã đi qua,
+anh chỉ muốn nói một điều rất đơn giản.
+
+Cảm ơn em vì đã bước vào cuộc đời anh một cách rất tình cờ,
+nhưng lại ở lại một cách rất thật lòng.
+
+Cảm ơn em vì đã cùng anh đi qua những ngày rất bình thường,
+và cả những ngày không dễ dàng.
+
+Cảm ơn em vì đã kiên nhẫn,
+vì đã không rời đi,
+dù có những lúc khoảng cách và cuộc sống khiến mọi thứ trở nên khó khăn hơn.
+
+Có thể anh và em không hoàn hảo,
+nhưng suốt 5 năm qua,
+điều anh luôn chắc chắn…
+
+là anh chưa từng hối hận vì đã chọn yêu em.
+
+Anh từng nghĩ…
+nếu một ngày mình không còn đi cùng nhau nữa,
+thì có lẽ anh vẫn sẽ ổn thôi.
+
+Nhưng rồi anh nhận ra,
+điều anh sợ không phải là mất đi một mối quan hệ…
+
+mà là mất đi em —
+người đã ở bên anh suốt cả một hành trình.
+
+Và đến lúc đó anh mới hiểu…
+
+sau tất cả,
+anh chưa từng chuẩn bị cho một cuộc sống không có em.`;
+
+// typewriter + slow ending
+let i=0;
 function type(){
-    if(p>=paragraphs.length) return;
-    let text=paragraphs[p];
-    let el=document.getElementById("typedText");
-
-    if(c<text.length){
-        el.innerHTML+=text.charAt(c);
-        c++;
-        setTimeout(type,speed);
-    }else{
-        el.innerHTML+="<br><br>";
-        p++; c=0;
-        setTimeout(type,pause);
-    }
-}
+let speed = (i > text.length - 200) ? 60 : 20;
+if(i<text.length){
+document.getElementById("typedText").innerHTML += text.charAt(i);
+i++;
+setTimeout(type,speed);
+}else{
+endScene();
+}}
 type();
 
-// 💖 HEART
-setInterval(()=>{
-    let h=document.createElement("div");
-    h.className="floating-heart";
-    h.innerHTML="💖";
-    h.style.left=Math.random()*100+"vw";
-    document.body.appendChild(h);
-    setTimeout(()=>h.remove(),5000);
-},400);
+// cinematic ending
+function endScene(){
+let el=document.getElementById("typedText");
+el.innerHTML += `<span class="highlight">Yêu Em 😘</span>`;
 
-// ❄️ SNOW
-const snow=document.getElementById("snow");
-for(let i=0;i<50;i++){
-    let s=document.createElement("span");
-    s.style.left=Math.random()*100+"vw";
-    s.style.animationDuration=(3+Math.random()*5)+"s";
-    snow.appendChild(s);
+let m=document.getElementById("bgMusic");
+let vol=1;
+let fade=setInterval(()=>{
+if(vol>0){
+vol-=0.05;
+m.volume=vol;
+}else clearInterval(fade);
+},200);
 }
 
-// 🔍 ZOOM
+// hiệu ứng
+setInterval(()=>{
+let h=document.createElement("div");
+h.className="floating-heart";
+h.innerHTML="💖";
+h.style.left=Math.random()*100+"vw";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),5000);
+},400);
+
+let snow=document.getElementById("snow");
+for(let i=0;i<60;i++){
+let s=document.createElement("span");
+s.style.left=Math.random()*100+"vw";
+s.style.animationDuration=(3+Math.random()*5)+"s";
+snow.appendChild(s);
+}
+
+// zoom ảnh
 document.querySelectorAll(".gallery img").forEach(img=>{
-    img.onclick=()=>{
-        let box=document.createElement("div");
-        box.className="lightbox";
-        box.innerHTML=`<img src="${img.src}">`;
-        box.onclick=()=>box.remove();
-        document.body.appendChild(box);
-    }
+img.onclick=()=>{
+let box=document.createElement("div");
+box.className="lightbox";
+box.innerHTML=`<img src="${img.src}">`;
+box.onclick=()=>box.remove();
+document.body.appendChild(box);
+}
 });
 
-// ⏱ TIME
+// đếm ngày
 const start=new Date("2021-05-09");
 setInterval(()=>{
-    let now=new Date();
-    let diff=now-start;
-    let d=Math.floor(diff/86400000);
-    document.getElementById("loveTime").innerHTML=
-    "Đã bên nhau: "+d+" ngày 💕";
+let d=Math.floor((new Date()-start)/86400000);
+document.getElementById("loveTime").innerHTML="Đã bên nhau: "+d+" ngày 💕";
 },1000);
 </script>
 
