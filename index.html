@@ -67,19 +67,75 @@ body::before{
 
 .gallery{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
-    gap:10px;
-    margin-top:30px;
+    grid-template-columns:repeat(5,120px);
+    justify-content:center;
+    gap:12px;
+    margin-top:40px;
 }
+
+/* hàng trên */
+.gallery img:nth-child(1),
+.gallery img:nth-child(2),
+.gallery img:nth-child(3),
+.gallery img:nth-child(4),
+.gallery img:nth-child(5){
+    grid-column:auto;
+}
+
+/* cột trái */
+.gallery img:nth-child(6){
+    grid-column:1;
+}
+.gallery img:nth-child(7){
+    grid-column:1;
+}
+
+/* ngang giữa */
+.gallery img:nth-child(8),
+.gallery img:nth-child(9),
+.gallery img:nth-child(10),
+.gallery img:nth-child(11),
+.gallery img:nth-child(12){
+    grid-column:auto;
+}
+
+/* cột phải */
+.gallery img:nth-child(13){
+    grid-column:5;
+}
+.gallery img:nth-child(14){
+    grid-column:5;
+}
+
+/* hàng cuối */
+.gallery img:nth-child(15),
+.gallery img:nth-child(16),
+.gallery img:nth-child(17),
+.gallery img:nth-child(18),
+.gallery img:nth-child(19),
+.gallery img:nth-child(20){
+    grid-column:auto;
+}
+
 .gallery img{
-    width:100%;
+    width:120px;
     height:120px;
     object-fit:cover;
-    border-radius:10px;
+    border-radius:18px;
     cursor:pointer;
-    transition:0.3s;
+    transition:0.4s;
+    border:3px solid rgba(255,255,255,0.9);
+    box-shadow:
+        0 0 10px rgba(255,255,255,0.25),
+        0 0 25px rgba(255,192,203,0.25);
 }
-.gallery img:hover{transform:scale(1.1)}
+
+.gallery img:hover{
+    transform:scale(1.08);
+    box-shadow:
+        0 0 20px rgba(255,255,255,0.5),
+        0 0 35px rgba(255,182,193,0.6);
+}
 
 .lightbox{
     position:fixed;
